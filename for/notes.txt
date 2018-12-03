@@ -1,0 +1,18 @@
+var ouput = "";
+var i=0;
+while (i<names.length)
+{
+	output += names[i] + "<br / >";
+	i++
+}
+
+
+with a for loop
+
+var output = "";
+for (var i = 0; i < names.length; i++)
+{
+	output += names[i] + "<br />";
+}
+
+Both codes do the same thing

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- Connie -->
+<html>
+	
+	<head>
+		<title> </title>
+		<script src = "cardengine1.js"> </script> 
+		<script src = "utilities.js"> </script> 
+		<style> </style>
+		<script> 
+			function initialize()
+			{
+				imgTags = document.getElementsByTagName("img");
+				myDeck = generateStandardDeck();
+				myDeck = shuffleDeck(myDeck);
+				
+				for(var i = 0; i < myDeck.length; i++)
+				{
+					imgTags[i].src = "cardimages/" + myDeck[i].cardImg;
+				}
+				
+				jBoard = document.getElementById("board");
+				jGameStatus = document.getElementById("game_status");
+	
+				BOARD_SIZE = 9;
+				cardsOnBoard = [];
+				pointValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0];
+				selected = [];
+				
+				myDeck = generateDeckWithPointValues(pointValues);
+				myDeck = shuffleDeck(myDeck);
+				
+				for (var i = 0; i < BOARD_SIZE; i++)
+				{
+					var theTD = jBoard.insertCell(i);
+					cardsOnBoard.push(dealCard(myDeck));
+					theTD.innerHTML = "<img src = 'cardimages/" + cardsOnBoard[i].cardImg + "' />";
+					theTD.setAttribute("onclick", "selectUnselect(this);");
+					selected.push(false);
+				}
+			}
+			
+			function shuffleDeck(deck)	
+			{
+				var shuffledDeck = [];
+				while(0 < deck.length)
+			{
+				var index = getRandomInteger(0, deck.length - 1);
+				var newDeck = deck.splice(index,1);
+				shuffledDeck.push(newDeck[0]);
+			}
+				return shuffledDeck;
+			}
+
+
+
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<div>
+			<span>
+				<table>
+					<tr id = "board">
+				
+				</table>
+			</span>
+			
+			<span>
+				<table>
+					<button> Replace </button>
+					<br /> <br />
+					<button> Restart </button>
+				</table>
+			</span>
+		</div>
+		
+		<div id = "game_status"> </div>
+	</body>
+	
+</html> 
+ 

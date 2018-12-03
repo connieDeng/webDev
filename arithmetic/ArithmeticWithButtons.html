@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!-- Connie -->
+<html>
+	
+	<head>
+		<title> Add Substract Multipy Divide </title>
+		<style> </style>
+		<script>
+			function CreateVariables() //functions have ()
+			{
+				//alert("function begin")
+				x = 3;
+				y = 7;
+				//alert("x")
+				//alert(x) //it will show the number 3
+				//alert (y)
+			}
+			
+			function initialize()
+			{
+				CreateVariables(); //one function does one thing
+				add();
+				//display();
+				
+				subtract(); //back end
+				//display(); // front end
+				
+				multiply();
+				//display();
+				
+				divide();
+				//display();
+				
+				modulus1();
+				//display();
+				
+				modulus2();
+				//display();
+			}
+			
+			function add() //back end function, puts answer in another variable; does work behind the scenes
+			{
+				answer= x + y; //the + actually adds
+				//alert(x + " + " + y + " = " + answer); //concatenate (puts together); string literal
+			}
+			
+			function subtract()
+			{
+				answer= x - y; 
+				//alert(x + " - " + y + " = " + answer); 
+			}
+			
+			function multiply()
+			{
+				answer= x * y; 
+				//alert(x + " * " + y + " = " + answer); 
+			}
+			
+			function divide()
+			{
+				answer= x / y; 
+				//alert(x + " / " + y + " = " + answer); 
+			}
+			//% modulus = used in java remainder. y% 7/3 = 2R1 0/3 = 0R3. 0<=(a%b) <b
+			//a<b; a%b=a
+			
+			function modulus1() //x-y
+			{
+				answer= x % y; 
+				//alert(x + " % " + y + " = " + answer); 
+			}
+			
+			function modulus2()
+			{
+				answer= y % x; 
+				//alert(y + " % " + x + " = " + answer); 
+			}
+			
+			function display()
+			{
+				alert(answer);
+			}	
+			
+			
+	//notes
+	/* amount ++; adds 1
+	amount += 1;
+	amount = amount + 1;
+	
+	
+	amount = amount * 5;
+	amount *= 5;
+	*/
+	
+	
+	
+	
+		</script>
+		
+	</head>
+	
+	<body onload = "initialize();"> <!-- it's in ""-->
+		<button onclick = "add(); display();"> <!-- syntac -->
+			Add
+		</button>
+	
+	<button onclick = "subtract(); display();"> 
+			Subtract
+		</button>
+		
+	<button onclick = "multiply(); display();"> 
+			Multiply
+		</button>
+		
+	<button onclick = "divide(); display();"> 
+			Divide
+		</button>
+		
+	<button onclick = "modulus1(); display();"> 
+			Modulus1
+		</button>
+		
+	<button onclick = "modulus2(); display();"> 
+			Modulus2
+		</button>
+	
+	
+
+	
+	</body>
+</html> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!-- Connie -->
+<html>
+	
+	<head>
+		<title> Add Substract Multipy Divide </title>
+		<style> </style>
+		<script>
+			
+			function CreateVariables() 
+			{
+				penny = 0.01;
+				nickel = 0.05;
+				dime = 0.10;
+				quarter = 0.25;		
+				
+				pennyCount = 0;
+				nickelCount = 0;
+				dimeCount = 0;
+				quarterCount = 0;
+				
+				total = 0.00;
+			}
+			
+			function display()
+			
+			{
+				alert("total: $" + total)
+				alert("pennies: " + pennyCount + " nickels: " + nickelCount + " dimes: " + dimeCount + " quarters: " + quarterCount)
+			}
+			
+
+<!-------------------------------------penny------------------------------------------------------------------------------------------------------------->
+		
+			
+			function add1penny()
+			{
+				pennyCount = pennyCount + 1;
+				total = total + penny;
+			}
+			
+			function sub1penny()
+			{
+				pennyCount = pennyCount - 1;
+				total = total - penny;
+			}
+			
+			function add5pennies()
+			{
+				pennyCount = pennyCount + 5;
+				total = total + penny*5;
+			}
+			
+			function sub5pennies()
+			{
+				pennyCount = pennyCount - 5;
+				total = total - penny*5;
+			}
+			
+<!-----------------------------------------nickel--------------------------------------------------------------------------------------------------------->
+			
+			function add1nickel()
+			{
+				nickelCount = nickelCount + 1;
+				total = total + nickel;
+			}
+			
+			function sub1nickel()
+			{
+				nickelCount = nickelCount - 1;
+				total = total - nickel;
+			}
+			
+			function add5nickels()
+			{
+				nickelCount = nickelCount + 5;
+				total = total + nickel*5;
+			}
+			
+			function sub5nickels()
+			{
+				nickelCount = nickelCount - 5;
+				total = total - nickel*5;
+			}
+			
+<!---------------------------------------dime----------------------------------------------------------------------------------------------------------->
+
+			function add1dime()
+			{
+				dimeCount = dimeCount + 1;
+				total = total + dime;
+			}
+			
+			function sub1dime()
+			{
+				dimecount = dimeCount - 1;
+				total = total - dime;
+			}
+			
+			function add5dimes()
+			{
+				dimeCount = dimeCount + 5;
+				total = total + dime*5;
+			}
+			
+			function sub5dimes()
+			{
+				dimeCount = dimeCount - 5;
+				total = total - dime*5;
+			}
+			
+<!----------------------------------------------------quarter---------------------------------------------------------------------------------------------->
+			
+			function add1quarter()
+			{
+				quarterCount = quarterCount + 1;
+				total = total + quarter;
+			}
+			
+			function sub1quarter()
+			{
+				quartercount = quarterCount - 1;
+				total = total - quarter;
+			}
+			
+			function add5quarters()
+			{
+				quarterCount = quarterCount + 5;
+				total = total + quarter*5;
+			}
+			
+			function sub5quarters()
+			{
+				quarterCount = quarterCount - 5;
+				total = total - quarter*5;
+			}
+			
+<!-------------------------------------------------------------------------------------------------------------------------------------------------->
+		
+			function initialize() <!-- fix -->
+			{
+				CreateVariables(); 
+				display();
+			}
+	
+		</script>
+		
+	</head>
+	
+	<body onload = "CreateVariables();">
+
+	<div> Penny </div>
+	
+		<button onclick = "add1penny(); display();">		<!-- Penny -->
+			Add 1 Penny
+		</button>
+	
+		<button onclick = "sub1penny(); display();">
+			Subtract 1 Penny
+		</button>
+		
+		<button onclick = "add5pennies(); display();"> 
+			Add 5 Pennies
+		</button>
+	
+		<button onclick = "sub5pennies(); display();"> 
+			Subtract 5 Pennies
+		</button>
+
+	<hr />
+	
+	<div> Nickle </div>
+		
+		<button onclick = "add1nickel() display();"> 		<!-- Nickle -->
+			Add 1 Nickle
+		</button>
+	
+		<button onclick = "sub1nickel(); display();"> 
+			Subtract 1 Nickle
+		</button>
+
+		<button onclick = "add5nickels(); display();"> 
+			Add 5 Nickles
+		</button>
+	
+		<button onclick = "sub5nickels(); display();"> 
+			Subtract 5 Nickles
+		</button>
+		
+	<hr />
+	
+	
+	<div> Dime </div>
+	
+		<button onclick = "add1dime(); display();">		<!-- Dime -->
+			Add 1 Dime
+		</button>
+	
+		<button onclick = "sub1dime(); display();"> 
+			Subtract 1 Dime
+		</button>
+		
+		<button onclick = "add5dimes(); display();"> 
+			Add 5 Dimes
+		</button>
+		
+		<button onclick = "sub5dimes(); display();"> 
+			Subtract 5 Dimes
+		</button>
+	
+	<hr />
+	
+	<div> Quarter </div>
+
+		<button onclick = "add1quarter(); display();">		<!-- Quarter -->
+			Add 1 Quarter
+		</button>
+	
+		<button onclick = "sub1quarter(); display();"> 
+			Subtract 1 Quarter
+		</button>
+		
+		<button onclick = "add5quarters(); display();"> 
+			Add 5 Quarters
+		</button>
+		
+		<button onclick = "sub5quarters(); display();"> 
+			Subtract 5 Quarters
+		</button>
+
+	
+	</body>
+</html> 
+ 
+ 
+ 
+ 

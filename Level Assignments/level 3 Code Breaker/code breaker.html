@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!-- Connie -->
+<html>
+	
+	<head>
+		<link rel = "stylesheet" href = "stylesheet.css" /> 
+		<script src = "utilities.js"></script>
+		<title> </title>
+		<style> 
+		body
+		{
+			font-family:Georgia;
+			font-size:200%;
+			text-align:center;
+			padding-top:15%;
+			background-color:AliceBlue;
+		}
+
+		</style>
+		<script> 
+			TIMEGIVEN = 20;
+			CODELENGTH=3;
+			
+			function initialize()
+			{
+				counter = TIMEGIVEN;
+				counterOutput = document.getElementById("ctrout");
+				running = false;
+				startTime = new Date();
+				startButton = document.getElementById("start");
+				counterOutput.innerHTML=TIMEGIVEN + " seconds";
+				Guess = document.getElementById("guess");
+				Code = document.getElementById("code");
+				valueAway = document.getElementById("valueaway");
+				userGuess = [];
+				generateCode();
+				firstNumber = false;
+				secondNumber = false;
+				thirdNumber = false;
+				one = document.getElementById("1");
+				two = document.getElementById("2");
+				three = document.getElementById("3");
+				four = document.getElementById("4");
+				five = document.getElementById("5");
+				six = document.getElementById("6");
+				seven = document.getElementById("7");
+				eight = document.getElementById("8");
+				nine = document.getElementById("9");
+				Clean = document.getElementById("clean");
+				
+			}
+			
+			function generateCode()
+			{
+				codeGen = [];
+				for (var i = 0; i < CODELENGTH; i++)
+				{
+					number = getRandomInteger(1,9);
+					codeGen.push(number);
+				}
+				alert(codeGen);
+			}
+			
+			function count()
+			{
+				counter--;
+				display();
+				
+				if (counter <= 0)
+				{
+					clearInterval(counterTimer);
+					valueAway.innerHTML = "YOU LOST";
+					one.disabled = true;
+					two.disabled = true; 
+					three.disabled = true;
+					four.disabled = true; 
+					five.disabled = true; 
+					six.disabled = true; 
+					seven.disabled = true;
+					eight.disabled = true; 
+					nine.disabled = true; 
+					Clean.disabled = true; 
+				}
+			}
+			
+			function display()
+			{
+				counterOutput.innerHTML = counter + " " + "seconds";
+				Guess.innerHTML = userGuess;
+			}
+
+			function startCounter()
+			{
+				if (!running)
+				{
+					counterTimer = setInterval(count,1000);
+					running = true;
+					startButton.disabled = true;
+				}
+			}
+			
+			function userCode(pressedNumber)
+			{	
+				userGuess.push(pressedNumber);
+				display();
+				
+				if (userGuess.length == 3)
+				{
+					correct();
+					userGuess = [];
+					display();
+				}
+			}
+			
+			function correct()
+			{
+				if (userGuess[0]==codeGen[0])
+				{
+					if (userGuess[1]==codeGen[1])
+					{				
+						if (userGuess[2]==codeGen[2])
+						{
+							valueAway.innerHTML = "CORRECT!";
+							one.disabled = true;
+							two.disabled = true; 
+							three.disabled = true;
+							four.disabled = true; 
+							five.disabled = true; 
+							six.disabled = true; 
+							seven.disabled = true;
+							eight.disabled = true; 
+							nine.disabled = true; 
+							Clean.disabled = true; 
+							
+							clearInterval(counterTimer);
+						}
+						
+						if(userGuess[2] > codeGen[2])
+						{
+							valueAway.innerHTML = "TOO HIGH";
+						}
+						
+						if(userGuess[2] < codeGen[2])
+						{
+							valueAway.innerHTML = "TOO LOW";
+						}
+					}
+					
+					if(userGuess[1] > codeGen[1])
+					{
+						valueAway.innerHTML = "TOO HIGH";
+					}
+					
+					if(userGuess[1] < codeGen[1])
+					{
+						valueAway.innerHTML = "TOO LOW";
+					}
+				}
+				
+				if (userGuess[0] > codeGen[0])
+				{
+					valueAway.innerHTML = "TOO HIGH";
+				}
+				
+				if (userGuess[0] < codeGen[0])
+				{
+					valueAway.innerHTML = "TOO LOW";
+				}
+			}
+			
+			function clean()
+			{
+				userGuess=[];
+				display();
+ 
+			}
+			
+			function reset()
+			{
+				
+				one.disabled = false;
+				two.disabled = false; 
+				three.disabled = false;
+				four.disabled = false; 
+				five.disabled = false; 
+				six.disabled = false; 
+				seven.disabled = false;
+				eight.disabled = false; 
+				nine.disabled = false;
+				valueAway.innerHTML = "";
+				clearInterval(counterTimer);
+				generateCode();
+				counter = TIMEGIVEN;
+				running = false;
+				startButton.disabled = false;
+				Clean.disabled = false; 
+				display();
+			}
+			
+		</script>
+	</head>
+	
+	<body onload = "initialize();">
+	<div id = "box"> </div>
+	<div id = "title"> CODE BREAKER </div>
+	<div id = "ctrout"> </div>
+	<div id = "valueaway"> </div>
+	<div id = "guess"> </div>
+	<div id = "code"> </div>
+	<button id = "start" onclick = "startCounter();"> Start Counter </button>
+	<button id = "1" onclick = "userCode(1);"> 1 </button>
+	<button id = "2" onclick = "userCode(2);"> 2 </button>
+	<button id = "3" onclick = "userCode(3);"> 3 </button>
+	<button id = "4" onclick = "userCode(4);"> 4 </button>
+	<button id = "5" onclick = "userCode(5);"> 5 </button>
+	<button id = "6" onclick = "userCode(6);"> 6 </button>
+	<button	id = "7" onclick = "userCode(7);"> 7 </button>
+	<button id = "8" onclick = "userCode(8);"> 8 </button>
+	<button id = "9" onclick = "userCode(9);"> 9 </button>
+	<button id = "clean" onclick = "clean();"> clear </button>
+	<button onclick = "reset();"> reset </button>
+	</body>
+	
+</html> 
+ 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Connie -->
+<html>
+	
+	<head>
+		<title> </title>
+		<style> </style>
+		<script> 
+			function initialize()
+			{
+				candyAddition = document.getElementById("candy");
+				candyOutput = document.getElementById("candyoutput");
+				errorMessage =  document.getElementById("errormessage");
+				
+				candies=[];
+				display();
+				
+			}
+			
+			function addCandy()
+			{
+				var theCandy = candyAddition.value;
+				if (candies.indexOf (theCandy) == -1)
+				{
+					candies.push(theCandy);
+					errorMessage.innerHTML = "";
+				}
+				
+				else 
+				{
+					errorMessage.innerHTML = theCandy + " is already in this list.";
+				}
+
+				display();
+			}
+			
+			function display()
+			{
+				var i = 0;
+				var output = "";
+					while (i < candies.length)
+					{
+						output += "candy[" + i + "] : " + candies [i] + "<br />";
+						i++;
+					}
+				candyOutput.innerHTML = output;
+				candyAddition.value = "";
+			}
+		</script>
+	</head>
+	
+	<body onload = "initialize();">
+		<div id = "candyoutput"> </div>
+		<button onclick = "addCandy()"> Add a new candy </button>
+		<input id ="candy" type="text"/>
+		<div id = "errormessage"> </div>
+		
+		<img src = "pokemon card.png">
+	</body>
+	
+</html> 
+ 

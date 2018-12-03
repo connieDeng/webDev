@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- Connie -->
+<html ondragover = "allowDrag(event)" ondrop = "dropElement(event)">
+	
+	<head>
+		<title> </title>
+		<style>
+		img
+		{
+			position:fixed;
+		}
+		</style>
+		<script> 
+			function initialize()
+			{
+				Doggo = document.getElementById("dog");
+				Doggo.gradation = 1.0;
+				Opacity = 1;
+			}
+			
+			function startDrag(objectDragged)
+			{
+				dragger = objectDragged;
+			}
+			
+			function allowDrag(e)
+			{
+				e.preventDefault();
+			}
+			
+			function dropElement(e)
+			{
+				var Copy = document.createElement("img");
+				Copy.src = Doggo.src;
+				Copy.setAttribute("ondragstart", "startdrag(this)")
+				Copy.setAttribute("draggable", "draggable")
+				Copy.gradation = dragger.gradation - 0.1;
+				Copy.style.opacity = Copy.gradation;
+				
+				e.preventDefault();
+				Copy.style.left = e.clientX + "px";
+				Copy.style.top = e.clientY + "px";
+				
+				if(Copy.style.opacity < 0.0)
+				{
+					document.body.appendChild(Copy);
+				}
+				
+				Copy.style.opacity = Opacity;
+				Opacity = Opacity - .1;
+			}
+			
+		</script>
+	</head>
+	
+	<body onload = "initialize();">
+	<img draggable = "draggable" ondragstart = "startDrag(this)" id = "dog" src = "paw.jpg"/>
+	<div ondrop = "dropElement(event);" id = "space"> </div>
+	</body>
+	
+</html> 

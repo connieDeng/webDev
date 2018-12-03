@@ -1,0 +1,75 @@
+<!Doctype html>
+<!-- Samuel Khong-->
+<html>
+	<head>
+		<title>
+
+		</title>
+		<style>
+			#bgrnd
+			{
+				z-index : -1;
+				width : 100%;
+				height : 100%;
+				position : fixed;
+				top : 0;
+				left : 0;
+				background-color : brown;
+			}
+			#heading
+			{
+				text-align : center;
+				padding-top : 50px;
+				font-size : 75pt;
+				color : darkred;
+				font-weight : bold;
+				font-style : italic;
+			}
+			div.clickables
+			{
+				text-align : center;
+			}
+			a
+			{
+				border-style : solid;
+				color : burlywood;
+				background-color : darkred;
+				border-color : black;
+				padding : 25px;
+				font-weight : bold;
+			}
+			a:hover
+			{
+				cursor : pointer;
+			}
+			h2
+			{
+				text-align :center;
+			}
+		</style>
+		<script src = "finalproject.js" > </script>
+		<script>
+			function initialize()
+			{
+				
+			}
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<img id = "bgrnd" src = "images/scroll.png" />
+		<h1 id = "heading"> Game Info </h1>
+		<div class = "clickables">
+			<a onclick = "saveGame();" href = "Menu.html" > Return to Menu </a> <br />
+		</div>
+		<br />
+		<h2>
+		Your goal is too kill as many slimes as possible <br /> <br />
+		Attack increases your damage to the slimes <br />
+		Defense reduces the damage you take from the slimes <br />
+		Speed lets you attack first if it is higher than the slimes <br />
+		Health increases the amount of hits you can take <br /> <br />
+		Each level of slime increases all its stats by 1 and increases its health by 2 <br />
+		Every lvl of slimes gives 50 more exp and 10 more gold <br />
+		</h2>
+	</body>
+</html>

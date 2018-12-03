@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- Connie -->
+<html>
+	
+	<head>
+		<title> </title>
+		<script src = "utilities.js"></script>
+		<style> </style>
+		<script> 
+			function initialize()
+			{
+				MINAGE = 24;
+				MAXAGE = 71;
+				STARTSALARY = 32000;
+				ADDTOSTARTINGSALARY = 250;
+				AGETOADDSALARY = 24;
+				PAIDPERYEAR = 750;	
+				MINID = 10000;
+				MAXID =99999;
+				NUMBEROFWORKERS = 250;
+				AGETORETIRE = 62;
+				YEARSWORKEDTORETIRE = 35;
+				
+				Print = document.getElementById("print");
+			}
+						
+			function compare2Array(element,twoArray) 
+			{
+				for (var i = 0; i < twoArray.length; i++) 
+				{
+					if (element == twoArray[i]) 
+					{
+                      return true; 
+					}
+
+				}
+					return false; 
+			}
+			
+			function idNumber()
+			{
+				var idCreated = [];
+				var idNumber = getRandomInteger(MINID, MAXID);
+				
+				if (compare2Array(idNumber, idCreated)== false)
+				{
+					idCreated.push(idNumber);
+					
+					return idNumber;
+				}
+				
+				else while (compare2Array(idNumber, idCreated) == true)
+				{
+					idNumber = getRandomInteger(MINID, MAXID);
+				}
+				
+			}
+			
+			function currentAge(MINAGE,MAXAGE)
+			{
+				currentAge = getRandomInteger(MINAGE, MAXAGE);
+				return currentAge;
+			}
+			
+			function ageStart(MINAGE,MAXAGE)
+			{
+				ageStart = getRandomInteger(MINAGE, MAXAGE);
+				
+				while (ageStart > currentAge)
+				{
+					ageStart = getRandomInteger(MINAGE, MAXAGE);
+				}
+				return ageStart;
+			}
+			
+			function salary()
+			{
+				var yearsWorked = currentAge - ageStart;
+				
+				if (ageStart == AGETOADDSALARY)
+				{
+					startingSalary = STARTSALARY;
+					moneyMade = PAIDPERYEAR*yearsWorked;
+					finalMoney = startingSalary+moneyMade;
+					return finalMoney;
+				}
+				
+				else
+				{
+					startingSalary = STARTSALARY + (ADDTOSTARTINGSALARY*(ageStart-MINAGE));
+					moneyMade = PAIDPERYEAR*yearsWorked;
+					finalMoney = startingSalary+moneyMade;
+					return finalMoney;
+				}
+			}
+			
+			function employeeID(idHere, ageCurrent, ageStart, salary)
+			{
+				this.idHere = idNumber();
+				this.ageCurrent = currentAge();
+				this.ageStart = ageStart();
+				this.salary = salary();
+			}
+			
+			function retire()
+			{
+				var yearsWorked = currentAge - ageStart;
+				
+				if (yearsWorked > YEARSWORKEDTORETIRE || currentAge >= AGETORETIRE)
+				return true;
+				
+				else return false;
+			}
+			
+			function list()
+			{
+				
+			}
+		</script>
+	</head>
+	
+	<body onload = "initialize();">
+	<div id = "print"></div>
+	</body>
+	
+</html> 
+ 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- Connie -->
+<html>
+	
+	<head>
+		<title> </title>
+		<link rel = "stylesheet" href = "Image Gallery.css" /> 
+		<style></style>
+		<script> 
+			function initialize()
+			{
+				disImg = document.getElementById("h5Tag");
+				disText = document.getElementById("text");
+			}
+			
+			function display (image, text)
+			{
+				disImg.src = image;
+				disText.innerHTML = text;
+			}
+			
+			
+		</script>
+	</head>
+	
+	<body onload = "initialize();">
+		<h6>
+			<img src = "4.jpg" onclick = "display('4.jpg', 'Picture 1');"/>
+			<img src = "5.png" onclick = "display('5.png', 'Picture 2');"/>
+			<img src = "7.jpg" onclick = "display('7.jpg', 'Picture 3');"/>
+			<img src = "8.jpg" onclick = "display('8.jpg', 'Picture 4');"/>
+		</h6>
+		
+		<h5>
+			<img src = "" id = "h5Tag"/>
+			<br/>
+			<span id = "text"> </span>
+		</h5>
+		
+	</body>
+	
+</html> 
+
+
+
+
+ 

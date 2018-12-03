@@ -1,0 +1,178 @@
+<!Doctype html>
+<!-- Samuel Khong-->
+<html>
+	<head>
+		<title>
+
+		</title>
+		<style>
+			#bgrnd
+			{
+				z-index : -1;
+				width : 100%;
+				height : 100%;
+				position : fixed;
+				top : 0;
+				left : 0;
+			}
+			div
+			{
+				padding-top : 10px;
+				padding-bottom : 50px;
+				text-align : center;
+				font-size : 30pt;
+			}
+			h1
+			{
+				text-align : center;
+			}
+			h2
+			{
+				color : red;
+				background-color : red;
+				width : 30%;
+			}
+			h3
+			{
+				color : green;
+				background-color : green;
+			}
+			#enemy
+			{
+				padding-left : 500px;
+			}
+			a
+			{
+				border-style : solid;
+				color : burlywood;
+				background-color : darkred;
+				border-color : black;
+				top : 50px;
+				padding : 50px;
+				font-weight : bold;
+				font-size : 25pt;
+				position : relative;
+			}
+			a:hover
+			{
+				cursor : pointer;
+			}
+			button
+			{
+				color : burlywood;
+				background-color : darkred;
+				border-color : black;
+			}
+			button:hover
+			{
+				cursor : pointer;
+			}
+		</style>
+		<script src = "finalproject.js" > </script>
+		<script>
+			function initialize()
+			{
+				yourHealth = document.getElementById("yourhealth");
+				myHealth = document.getElementById("myhealthbar");
+				enemyHealth = document.getElementById("enemyhealth");
+				eHealthBar = document.getElementById("ehealthbar");
+				gameOutput = document.getElementById("gameoutput");
+				atkBut = document.getElementById("attkbutton");
+				rBut = document.getElementById("rbutton");
+				nbut = document.getElementById("nextbutton");
+				gStatus = "FIGHT!";
+				
+				loadGame();
+				
+				//enemy stats
+				eLvl = 1;
+				eAtk = 5;
+				eDef = 3;
+				eSpeed = 4;
+				eHealth = 20;
+	
+				curHealth = health;
+				curEHealth = eHealth;
+				
+				display();
+			}
+			function restartGame()
+			{
+				saveGame();
+				if(gStatus == "Victory")
+				{
+					curEHealth = eHealth;
+				}
+				if(gStatus == "Defeat")
+				{
+					initialize();
+				}
+				
+				gStatus = "FIGHT!";
+				atkBut.disabled = false;
+				
+				display();
+			}
+			function nextEnemy()
+			{
+				saveGame();
+				eLvl = parseInt(eLvl) + 1;
+				eAtk = parseInt(eAtk) + 1;
+				eDef = parseInt(eDef) + 1;
+				eSpeed = parseInt(eSpeed) + 1;
+				eHealth = parseInt(eHealth) + 2;
+
+				curEHealth = eHealth;
+				
+				gStatus = "FIGHT!";
+				atkBut.disabled = false;
+				
+				display();
+			}
+			function display()
+			{
+				rBut.style.visibility = "hidden";
+				nbut.style.visibility = "hidden";
+				//working health bar
+				yourBarPercent = Math.round((curHealth/health) * 100);
+				enemyBarPercent = Math.round((curEHealth/eHealth) * 100);
+				if(enemyBarPercent < 1)
+					enemyBarPercent = 0;
+				if(yourBarPercent < 1)
+					yourBarPercent = 0;
+					
+				myHealth.style.width = yourBarPercent + "%";
+				eHealthBar.style.width = enemyBarPercent + "%";
+
+				yourHealth.innerHTML = "Lvl "+ level + " Your health: " + curHealth;
+				enemyHealth.innerHTML = "Slime lvl : " + eLvl + " health: " + curEHealth;
+				gameOutput.innerHTML = gStatus;
+				if(gStatus == "Victory")
+				{
+					atkBut.disabled = true;
+					rBut.style.visibility = "visible";
+					nbut.style.visibility = "visible";
+				}
+				if(gStatus == "Defeat")
+				{
+					atkBut.disabled = true;
+					rBut.style.visibility = "visible";
+				}
+			}
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<a onclick = "saveGame();" href = "Menu.html"> Menu </a> 
+		<img id = "bgrnd" src = "images/plains.jpg" />
+		<div id = "yourhealth"> </div>
+		<h2> <h3 id = "myhealthbar"> . </h3> </h2>
+		<div id = "enemyhealth"> </div>
+		<h2> <h3 id = "ehealthbar"> . </h3> </h2>
+		<h1 id = "gameoutput" > </h1> <br />
+		<img src = "images/rpgchar.png" />
+		<button id = "attkbutton" onclick = "attack();" > Attack </button>
+		<button id = "rbutton" onclick = "restartGame();"> Fight Again </button>
+		<button id = "nextbutton" onclick = "nextEnemy();"> Next Enemy </button>
+		<img id = "enemy" src = "images/slime.png" />
+	</body>
+</html>

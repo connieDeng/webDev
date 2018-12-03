@@ -1,0 +1,65 @@
+body
+{
+	background-color: AntiqueWhite;
+	background-image: url('jabber2.gif');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: 80% 70%;
+}
+
+.verse
+{
+	border-style: double;
+	border-color: blue;
+	padding-right:80px;
+	padding-left: 10px;
+	background-color:white;
+	width: 25%;
+	margin-left: 50px;
+	text-align: left;
+	color: maroon;
+}
+
+h2
+{
+	color: DarkOrange;
+}
+
+h1
+{
+	color:DarkRed;
+	background-color:white;
+	border-style:double;
+	border-width: thick;
+	padding-left:50px;
+	padding-right:50px;
+	border-width: 15px;
+	display: inline-block;
+	text-align: center;
+}
+
+div
+{
+	color:SlateBlue;
+}
+
+.comment
+{
+	font-weight:bold;
+	color:SlateGrey;
+}
+
+hr
+{
+	color:Navy ;
+	border-style:double;
+	border-width: 5px;
+}
+
+
+
+
+
+
+
+

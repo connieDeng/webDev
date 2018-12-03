@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- Connie -->
+<html>
+	
+	<head>
+		<title> </title>
+		<style> </style>
+		<script> 
+			function initialize()
+			{
+				mazeOutputBox = document.getElementById(mazeout);
+				
+				theMaze = [];
+				theMaze[0] = [];
+				currentRow = 0;
+			}
+			
+			function MazeSection(imgSrc)
+			{
+				this.sectionImage = document.createElement("img");
+				this.sectionImage.src = imgSrc;
+				this.sectionImage.myMazeSection = this;
+			}
+			
+			function placeSection(place)
+			{
+				var section = new MazeSection(place);
+				theMaze(currentRow).push(section);
+				mazeOutputBox.appendChild(section.sectionImage);
+			}
+			
+			function newLine()
+			{
+				
+			}
+		</script>
+	</head>
+	
+	<body onload = "initialize();">
+	<div>
+		<img src = "images/bottomdeadend.png" onclick = "placeSection(this.src)"/>
+		<img src = "images/cross.png" onclick = "placeSection(this.src)"/>
+		<img src = "images/empty.png" onclick = "placeSection(this.src)"/>
+		<img src = "images/horizontal.png" onclick = "placeSection(this.src)"/>
+		<img src = "images/lbottomleft.png" onclick = "placeSection(this.src)"/>
+		<img src = "images/lbottomright.png" onclick = "placeSection(this.src)"/>
+		<img src = "images/leftdeadend.png" onclick = "placeSection(this.src)"/>
+		<img src = "images/ltopleft.png" onclick = "placeSection(this.src)"/>
+		<img src = "images/ltopright.png" onclick = "placeSection(this.src)"/>
+		<img src = "images/rightdeadend.png" onclick = "placeSection(this.src)"/>
+		<img src = "images/tdown.png" onclick = "placeSection(this.src)"/>
+		<img src = "images/tleft.png" onclick = "placeSection(this.src)"/>
+		<img src = "images/topdeadend.png" onclick = "placeSection(this.src)"/>
+		<img src = "images/tright.png" onclick = "placeSection(this.src)"/>
+		<img src = "images/tup.png" onclick = "placeSection(this.src)"/>
+		<img src = "images/vertical.png" onclick = "placeSection(this.src)"/>
+			<br />
+		<button onclick = ""> Next line </button>
+	</div>
+	<hr/>
+	<div id = "mazeout"> </div>
+	
+	</body>
+	
+</html> 
+ 

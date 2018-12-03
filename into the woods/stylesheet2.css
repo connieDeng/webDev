@@ -1,0 +1,15 @@
+img.bgrnd
+{
+	position: fixed;
+	top: 0px;
+	left:0px;
+	width: 100%;
+	height:100%;
+	z-index:-1;
+}
+
+body
+{
+	border-style: none ridge none ridge;
+	 border-width: 0px 5px 0px 5px;
+}

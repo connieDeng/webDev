@@ -1,0 +1,82 @@
+/*
+	dropdown.css
+	
+	This .css file defines a template for creating dropdown menus.  In order use this file, you will need to define a menu system built within containers in the format:
+	
+	<tag class = "menucontainer">
+		<tag class = "menuitem">
+			Menu Item
+			<tag class = "subcontainer">
+				<tag class = "submenuitem">Sub Menu Item</tag>
+			</tag>
+		</tag>
+	</tag>
+
+	The tags that you use for your design is unimportant as the css will redefine their styling.  Make sure they have the proper classnames.
+	
+	You can include as many menu items and submenu items as are needed for your page.
+*/
+
+/*
+	menucontainer class
+	
+	This class represents the overall container for the entire menu system.
+	
+	The container needs to be a centered block element with all items inside centered.  The width is adjustable through the individual's page.
+*/
+.menucontainer
+{
+	display:block;
+	margin:auto;					
+	text-align:center;
+	width:80%;
+	position:relative;
+}
+
+/*
+	menuitem class
+	
+	This class represents the individual items at the topmost level of the menu.
+	
+	The items must be inline-block in order to give them adjustable widths.  The width here is set for 5 menu items, but can be adjusted based on individual needs.  The font and cursor are basic.
+*/
+.menuitem
+{
+	display:inline-block;
+	font:bold 18pt arial;
+	width:17%;
+	vertical-align:top;
+	cursor:pointer;
+	position:relative;
+}
+
+/*
+	subcontainer class
+	
+	Each subcontainer holds a group of submenu items.  These items need to be hidden.
+*/
+.subcontainer
+{
+	display:none;
+	position:absolute;
+	width:100%;
+}
+
+/*
+	submenuitem class
+	
+	This is a basic font and size.
+*/
+.submenuitem
+{
+	font:14pt arial;
+}
+
+/*
+	submenuitem:hover pseudoclass
+	
+	This is used to invert the base colors.  It can be adjusted to perform whatever display tricks the programmer wants.
+*/
+.submenuitem:hover
+{
+}

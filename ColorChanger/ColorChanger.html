@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!-- Connie -->
+<html>
+	
+	<head>
+		<title> </title>
+		<style> </style>
+		
+		<script> 
+			
+			function createVariables()
+			{
+				textColor = document.getElementById("cchello");
+				textColor.style.fontSize = "36pt";
+				BackGround = document.getElementById("Background");
+				BackGround.style.fontSize = "36pt";
+				redtv = 0;
+				greentv = 0;
+				bluetv = 0;
+				bgr = 255;
+				bgg = 255;
+				bgb = 255;		
+			}
+			
+<!----------------------------------------------------------------------red------------------------------------------------------------------------------------>
+
+			function add1r()
+			{ 
+				redtv = redtv + 1
+				bgr = bgr - 1
+			}
+			
+			function add5r()
+			{ 
+				redtv = redtv + 5
+				bgr = bgr - 5
+			}
+			
+			function add10r()
+			{ 
+				redtv = redtv + 10
+				bgr = bgr - 10
+			}
+		
+			function subtract1r()
+			{ 
+				redtv = redtv - 1
+				bgr = bgr + 1
+			}
+			
+			function subtract5r()
+			{ 
+				redtv = redtv - 5
+				bgr = bgr + 5
+			}
+			
+			function subtract10r()
+			{ 
+				redtv = redtv - 10
+				bgr = bgr + 10
+			}
+			
+			function add1br()
+			{
+				bgr = bgr + 1
+			}
+			
+			function add5br()
+			{
+				bgr = bgr + 5
+			}
+			
+			function add10br()
+			{
+				bgr = bgr + 10
+			}
+			
+			function subtract1br()
+			{
+				bgr = bgr - 1
+			}
+			
+			function subtract5br()
+			{
+				bgr = bgr - 5
+			}
+			
+			function subtract10br()
+			{
+				bgr = bgr - 10
+			}
+<!----------------------------------------------------------------------green------------------------------------------------------------------------------------>
+
+			function add1g()
+			{ 
+				greentv = greentv + 1
+				bgg = bgg - 1 
+			}
+			
+			function add5g()
+			{ 
+				greentv = greentv + 5
+				bgg = bgg - 5
+			}
+			
+			function add10g()
+			{ 
+				greentv = greentv + 10
+				bgg = bgg - 10
+			}
+			
+			function subtract1g()
+			{ 
+				greentv = greentv - 1
+				bgg = bgg + 1
+			}
+			
+			function subtract5g()
+			{ 
+				greentv = greentv - 5
+				bgg = bgg + 5
+			}
+			
+			function subtract10g()
+			{ 
+				greentv = greentv - 10
+				bgg = bgg + 10
+			}
+			
+			function add1bg()
+			{
+				bgg = bgg + 1
+			}
+			
+			function add5bg()
+			{
+				bgg = bgg + 5
+			}
+			
+			function add10bg()
+			{
+				bgg = bgg + 10
+			}
+			
+			function subtract1bg()
+			{
+				bgg = bgg - 1
+			}
+			
+			function subtract5bg()
+			{
+				bgg = bgg - 5
+			}
+			
+			function subtract10bg()
+			{
+				bgg = bgg - 10
+			}
+			
+			
+<!----------------------------------------------------------------------blue------------------------------------------------------------------------------------>
+
+			function add1b()
+			{ 
+				bluetv = bluetv + 1
+				bgb = bgb - 1
+			}
+			
+			function add5b()
+			{ 
+				bluetv = bluetv + 5
+				bgb = bgb - 5
+			}
+			
+			function add10b()
+			{ 
+				bluetv = bluetv + 10
+				bgb = bgb - 10
+			}
+			
+			function subtract1b()
+			{ 
+				bluetv = bluetv - 1
+				bgb = bgb + 1
+			}
+			
+			function subtract5b()
+			{ 
+				bluetv = bluetv - 5
+				bgb = bgb + 5
+			}
+			
+			function subtract10b()
+			{ 
+				bluetv = bluetv - 10
+				bgb = bgb + 10
+			}
+			
+			function add1bb()
+			{
+				bgb = bgb + 1 
+			}
+			
+			function add5bb()
+			{
+				bgb = bgb + 5
+			}
+			
+			function add10bb()
+			{
+				bgb = bgb + 10 
+			}
+			
+			function subtract1bb()
+			{
+				bgb = bgb - 1 
+			}
+			
+			function subtract5bb()
+			{
+				bgb = bgb - 5
+			}
+			
+			function subtract10bb()
+			{
+				bgb = bgb - 10
+			}
+			
+			function initialize() 
+			{
+				createVariables();	
+				display();
+			}
+			
+			function display()
+			{
+				textColor.style.color = "rgb("+redtv+","+greentv+","+bluetv+")";
+				textColor.style.backgroundColor = "rgb("+bgr+", "+bgg+", "+bgb+")";
+			}
+			
+		</script>
+	</head>
+	
+	
+	<body onload = "initialize();">
+	
+	<div id = "cchello">
+		Hello
+	</div>
+	<hr />
+	
+<!----------------------------------------------------------------------redT------------------------------------------------------------------------------------>
+	<div>
+		
+	<button onclick = "add1r(); display();">
+		Add Red +1
+	</button>
+	
+	<button onclick = "add5r(); display();">
+		Add Red +5
+	</button>
+	
+	<button onclick = "add10r(); display();">
+		Add Red +10
+	</button>
+	
+	<button onclick = "subtract1r(); display();">
+		Subtract Red -1
+	</button>
+	
+	<button onclick = "subtract5r(); display();">
+		Subtract Red -5
+	</button>
+	
+	<button onclick = "subtract10r(); display();">
+		Subtract Red -10
+	</button>
+	
+	</div>
+	<hr />
+<!----------------------------------------------------------------------GreenT------------------------------------------------------------------------------------>
+	<div>
+	
+	<button onclick = "add1g(); display();">
+		Add Green +1
+	</button>
+	
+	<button onclick = "add5g(); display();">
+		Add Green +5
+	</button>
+
+	
+	<button onclick = "add10g(); display();">
+		Add Green +10
+	</button>
+
+	<button onclick = "subtract1g(); display();">
+		Subtract Green -1
+	</button>
+	
+	<button onclick = "subtract5g(); display();">
+		Subtract Green -5
+	</button>
+	
+	<button onclick = "subtract10g(); display();">
+		Subtract Green -10
+	</button>
+		
+	</div>
+	<hr />
+<!----------------------------------------------------------------------BlueT------------------------------------------------------------------------------------>
+	<div>
+
+	<button onclick = "add1b(); display();">
+		Add Blue +1
+	</button>
+	
+	<button onclick = "add5b(); display();">
+		Add Blue +5
+	</button>
+	
+	<button onclick = "add10b(); display();">
+		Add Blue +10
+	</button>
+	
+	<button onclick = "subtract1b(); display();">
+		Subtract Blue -1
+	</button>
+
+	<button onclick = "subtract5b(); display();">
+		Subtract Blue -5
+	</button>
+	
+	<button onclick = "subtract10b(); display();">
+		Subtract Blue -10
+	</button>
+	</div>
+	
+	<hr />
+	
+<!----------------------------------------------------------------------Background------------------------------------------------------------------------------------>
+
+	
+	<div id = "Background">
+		Background changes
+	</div>
+	
+	<hr />
+	
+	<button onclick = "add1br();display();">
+		Background +1 Red
+	</button>
+	
+	<button onclick = "add5br();display();">
+		Background +5 Red
+	</button>
+	
+	<button onclick = "add10br();display();">
+		Background +10 Red
+	</button>
+
+	<button onclick = "subtract1br();display();">
+		Background -1 Red
+	</button>
+	
+	<button onclick = "subtract5br();display();">
+		Background -5 Red
+	</button>
+
+	<button onclick = "subtract10br();display();">
+		Background -10 Red
+	</button>
+	
+	<hr />
+	
+	<button onclick = "add1bg();display();">
+		Background +1 Green
+	</button>
+
+	<button onclick = "add5bg();display();">
+		Background +5 Green
+	</button>
+	
+	<button onclick = "add10bg();display();">
+		Background +10 Green
+	</button>
+	
+	<button onclick = "subtract1bg();display();">
+		Background -1 Green
+	</button>
+	
+	<button onclick = "subtract5bg();display();">
+		Background -5 Green
+	</button>
+	
+	<button onclick = "subtract10bg();display();">
+		Background -10 Green
+	</button>
+	
+	<hr />
+	
+	<button onclick = "add1bb();display();">
+		Background +1 Blue
+	</button>
+
+	<button onclick = "add5bb();display();">
+		Background +5 Blue
+	</button>
+
+	<button onclick = "add10bb();display();">
+		Background +10 Blue
+	</button>
+	
+	<button onclick = "subtract1bb();display();">
+		Background -1 Blue
+	</button>
+
+	<button onclick = "subtract5bb();display();">
+		Background -5 Blue
+	</button>
+
+	<button onclick = "subtract10bb();display();">
+		Background -10 Blue
+	</button>
+	
+	<div id="cchello">
+			Current RGB Values: (255,255,255)
+	</div>
+	
+	</body>
+
+</html> 
+ 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Connie -->
+<html>
+	
+	<head>
+		<title> </title>
+		<style> </style>
+		<script> 
+			
+			function initialize()
+			{
+				text = document.getElementById("ID");
+				isBold = false;
+				isItalics = false;
+				display();
+			}
+			
+			function display()
+			{
+				if(isBold == true)
+					text.style.fontWeight = "bold";
+				
+				else
+					text.style.fontWeight = "normal";
+					
+				if(isItalics == true)
+					text.style.fontStyle = "italic";
+				
+				else
+					text.style.fontStyle = "normal";
+			}
+			
+			function toggleBold()
+			{
+				isBold = !isBold;
+			}
+			
+			function toggleItalics()
+			{
+				isItalics = !isItalics;
+			}
+			
+		</script>
+	</head>
+	
+	<body onload = "initialize();">
+	
+	<div id = "ID">
+		TEXT
+	<div />
+
+	<button onclick ="toggleBold(); display();">
+		Bold
+	</button>
+	
+	<button onclick ="toggleItalics(); display();">
+		Italic
+	</button>
+	
+	</body>
+	
+</html> 
+ 

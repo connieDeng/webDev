@@ -1,0 +1,171 @@
+<!Doctype html>
+<!-- Samuel Khong-->
+<html>
+	<head>
+		<title>
+
+		</title>
+		<style>
+			#bgrnd
+			{
+				z-index : -1;
+				width : 100%;
+				height : 100%;
+				position : fixed;
+				top : 0;
+				left : 0;
+				background-color : brown;
+			}
+			#heading
+			{
+				text-align : center;
+				padding-top : 150px;
+				font-size : 30pt;
+				color : darkred;
+				font-weight : bold;
+				font-style : italic;
+				width : 49%;
+				display : inline-block;
+			}
+			div.clickables
+			{
+				text-align : center;
+				padding-top : 20px;
+			}
+			a
+			{
+				border-style : solid;
+				color : burlywood;
+				background-color : darkred;
+				border-color : black;
+				margin : 50px;
+				padding : 25px;
+				font-weight : bold;
+			}
+			a:hover
+			{
+				cursor : pointer;
+			}
+			button
+			{
+				border-style : solid;
+				color : burlywood;
+				background-color : darkred;
+				margin-top : 40px;
+			}
+			#equipped
+			{
+				padding-left : 350px;
+				width : 20%;
+			}
+			#inventory
+			{
+				position : absolute;
+				top : 40%;
+				right : 25%;
+			}
+			td
+			{
+				border-style : solid;
+				color : burlywood;
+				background-color : darkred;
+			}
+			#eitempic
+			{
+				width : 100px;
+				position : absolute;
+				z-index : 2;
+				top : 35%;
+				left : 22%;
+			}
+		</style>
+		<script src = "finalproject.js" > </script>
+		<script>
+			function initialize()
+			{
+				loadGame();
+				
+				nEquipped = document.getElementById("equipped");
+				nInventory = document.getElementById("inventory");
+				eItemPic = document.getElementById("eitempic");
+				
+				woodSword = "Wood Sword";
+				stoneSword = "Stone Sword";
+				ironSword = "Iron Sword";
+				goldSword = "Gold Sword";
+				diamondSword = "Diamond Sword";
+				
+				initializeT = 0;
+				display();
+				initializeT = 1;
+			}
+			function display()
+			{	
+				if(ownedWS > 0 && initializeT == 0)
+				{
+					var row1 = nInventory.insertRow(-1);
+					var item1 = row1.insertCell(-1);
+					item1.innerHTML = "Wood Sword";
+					item1.onclick = function() {equipItem(woodSword);};
+				}
+				if(ownedSS > 0 && initializeT == 0)
+				{
+					var row1 = nInventory.insertRow(-1);
+					var item1 = row1.insertCell(-1);
+					item1.innerHTML = "Stone Sword";
+					item1.onclick = function() {equipItem(stoneSword);};
+				}
+				if(ownedIS > 0 && initializeT == 0)
+				{
+					var row1 = nInventory.insertRow(-1);
+					var item1 = row1.insertCell(-1);
+					item1.innerHTML = "Iron Sword";
+					item1.onclick = function() {equipItem(ironSword);};
+				}
+				if(ownedGS > 0 && initializeT == 0)
+				{
+					var row1 = nInventory.insertRow(-1);
+					var item1 = row1.insertCell(-1);
+					item1.innerHTML = "Gold Sword";
+					item1.onclick = function() {equipItem(goldSword);};
+				}
+				if(ownedDS > 0 && initializeT == 0)
+				{
+					var row1 = nInventory.insertRow(-1);
+					var item1 = row1.insertCell(-1);
+					item1.innerHTML = "Diamond Sword";
+					item1.onclick = function() {equipItem(diamondSword);};
+				}
+
+				
+				if(eItem == woodSword)
+					eItemPic.src = "images/woodsword.png";
+				if(eItem == stoneSword)
+					eItemPic.src = "images/stonesword.png";
+				if(eItem == ironSword)
+					eItemPic.src = "images/ironsword.png";
+				if(eItem == goldSword)
+					eItemPic.src = "images/goldsword.png";
+				if(eItem == diamondSword)
+					eItemPic.src = "images/diamondsword.png";
+				if(eItem == "None")
+					eItemPic.src = "";
+					
+				nEquipped.innerHTML = eItem;
+				}
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<img id = "bgrnd" src = "images/scroll.png" />
+		<h1 id = "heading"> Equipment </h1> <h1 id = "heading"> Inventory </h1>
+		<div class = "clickables">
+			<a onclick = "saveGame();" href = "Menu.html" > Return to Menu </a> <br />
+			<button onclick = "unEquip();"> Unequip </button>
+		</div> <br />
+		<span id = "equipped"> </span>
+		<table id = "inventory">
+			
+		</table>
+		<img id = "eitempic" src = ""> </img>
+	</body>
+</html>

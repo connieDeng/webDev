@@ -1,0 +1,21 @@
+span
+{
+	display:inline-block;
+	width:70%;
+	vertical-align: top;
+}
+
+span + span
+{
+	width:25%
+}
+
+button
+{
+	font:bold 24pt Calibri;
+}
+
+#game_status
+{
+	font:bold 30pt Calibri;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Connie -->
+<html ondragover = "allowDrag(event)" ondrop = "dropElement(event)">
+	
+	<head>
+		<title> </title>
+		<style>
+		img
+		{
+			position:fixed;
+		}
+		</style>
+		<script> 
+			function initialize()
+			{
+				Blank = document.getElementById("Space");
+			}
+			
+			function startDrag(objectDragged)
+			{
+				dragger = objectDragged;
+			}
+			
+			function allowDrag(e)
+			{
+				e.preventDefault();
+			}
+			
+			function dropElement(e)
+			{
+				e.preventDefault();
+				dragger.style.left = e.clientX + "px";
+				dragger.style.top = e.clientY + "px";	
+				Xvalue = e.clientX;
+				Yvalue = e.clientY;
+				
+				Blank.innerHTML = "( " + Xvalue + "," + Yvalue + ")";
+				dragger = null;
+			}
+			
+		</script>
+	</head>
+	
+	<body onload = "initialize();">
+	<img draggable = "draggable" ondragstart = "startDrag(this)" id = "dog" src = "paw.jpg"/>
+	<div ondrop = "dropElement(event);" id = "space"> </div>
+	</body>
+	
+</html> 
+ 

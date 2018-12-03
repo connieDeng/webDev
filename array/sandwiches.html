@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- Connie -->
+<html>
+	
+	<head>
+		<title> </title>
+		<style> </style>
+		<script> 
+			function initialize()
+			{
+				sandwichOutput = document.getElementById ("sandwichdiv")
+				sandwiches = []
+				sandwiches [0] = "BLT";   
+				sandwiches [1] = "Bacon egg and cheese";
+				sandwiches [2] = "Philly cheesesteak";
+				sandwiches [4] = "Peanut butter jelly sandwich";
+				sandwiches[5] = sandwiches[0];
+				sandwiches[0] = "Turkey";
+				
+				sandwiches[sandwiches.length]="Cheeseburger";
+				sandwiches.push("Grilled cheese"); //Grilled Cheese is a parameter
+				
+				sandwiches.unshift("Krabby Patty");
+				sandwiches.unshift(sandwiches.pop());
+				
+				sandwiches.shift();
+				
+				display();
+			} 
+			
+			/*function display()
+			{
+				sandwichOutput.innerHTML = sandwiches;
+				//sandwichOutput.innerHTML = sandwiches[3];
+			}
+			*/
+			
+			function display()
+			{
+				output = "";
+				var i = 0;
+					
+					while ( i < sandwiches.length) //lenght is always one more than the last index
+					{
+						output += (i+1) + ". " + sandwiches[i] + "<br />";
+						i++;
+					}
+				sandwichOutput.innerHTML = output;
+			}
+		</script>
+	</head>
+	
+	<body onload = "initialize();">
+	<div id = "sandwichdiv">
+	
+	</div>
+	</body>
+</html> 
+ 

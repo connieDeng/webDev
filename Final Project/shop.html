@@ -1,0 +1,136 @@
+<!Doctype html>
+<!-- Samuel Khong-->
+<html>
+	<head>
+		<title>
+
+		</title>
+		<style>
+			#bgrnd
+			{
+				z-index : -1;
+				width : 100%;
+				height : 100%;
+				position : fixed;
+				top : 0;
+				left : 0;
+				background-color : brown;
+			}
+			a
+			{
+				border-style : solid;
+				color : burlywood;
+				background-color : darkred;
+				border-color : black;
+				margin : auto;
+				padding : 50px;
+				font-weight : bold;
+				font-size : 25pt;
+				position : absolute;
+				bottom : 0px;
+				left : 0px;
+			}
+			a:hover
+			{
+				cursor : pointer;
+			}
+			#merchant
+			{
+				position : absolute;
+				margin : auto;
+				right : 0%;
+				bottom : 0%;
+				
+			}
+			#woodsword
+			{
+				width : 200px;
+				position : absolute;
+			}
+			#stonesword
+			{
+				width : 200px;
+				position : absolute;
+				left : 20%;
+			}
+			#ironsword
+			{
+				width : 200px;
+				position : absolute;
+				left : 40%;
+			}
+			#goldsword
+			{
+				width : 200px;
+				position : absolute;
+				left : 60%;
+			}
+			#diamondsword
+			{
+				width : 200px;
+				position : absolute;
+				top : 30%;
+			}
+			span
+			{
+				position : absolute;
+				bottom : 2%;
+				left : 12%;
+				font-size : 40pt;
+			}
+		</style>
+		<script src = "finalproject.js" > </script>
+		<script>
+			function initialize()
+			{
+				loadGame();
+				
+				woodSword = document.getElementById("woodsword");
+				stoneSword = document.getElementById("stonesword");
+				ironSword = document.getElementById("ironsword");
+				goldSword = document.getElementById("goldsword");
+				diamondSword = document.getElementById("diamondsword");
+				
+				itemDis = document.getElementById("itemdis");
+				itemDis.innerHTML = "Welcome to my shop! Gold: " + gold;
+				
+			}
+			function displayOver(item)
+			{
+				item.style.borderStyle = "solid";
+				item.style.zIndex = "2";
+				
+				if(item == woodSword)
+				itemDis.innerHTML =  "Wood Sword: 50 Gold - attack +2 - Gold: " + gold;
+				if(item == stoneSword)
+				itemDis.innerHTML =  "Stone Sword: 200 Gold - attack +5 - Gold: " + gold;
+				if(item == ironSword)
+				itemDis.innerHTML =  "Iron Sword: 500 Gold - attack +10 - Gold: " + gold;
+				if(item == goldSword)
+				itemDis.innerHTML =  "Gold Sword: 1000 Gold - attack +25 - Gold: " + gold;
+				if(item == diamondSword)
+				itemDis.innerHTML =  "Diamond Sword: 2000 Gold - attack +50 - Gold: " + gold;
+			}
+			function displayOut(item)
+			{
+				item.style.borderStyle = "none";
+				item.style.zIndex = "1";
+				
+				itemDis.innerHTML = "";
+			}
+			
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<img id = "bgrnd" src = "images/shop.jpg"> </img>
+		<a onclick = "saveGame();" href = "Menu.html"> Menu </a> 
+		<img id = "merchant" src = "images/merchant.png"> </img>
+		<img onclick = "buyWS(), displayOver(woodSword);" onmouseover = "displayOver(woodSword);" onmouseout = "displayOut(woodSword);" id = "woodsword" src = "images/woodsword.png"> </img> 
+		<img onclick = "buySS(), displayOver(stoneSword);" onmouseover = "displayOver(stoneSword);" onmouseout = "displayOut(stoneSword);" id = "stonesword" src = "images/stonesword.png"> </img> 
+		<img onclick = "buyIS(), displayOver(ironSword);" onmouseover = "displayOver(ironSword);" onmouseout = "displayOut(ironSword);" id = "ironsword" src = "images/ironsword.png"> </img> 
+		<img onclick = "buyGS(), displayOver(goldSword);" onmouseover = "displayOver(goldSword);" onmouseout = "displayOut(goldSword);" id = "goldsword" src = "images/goldsword.png"> </img> 
+		<img onclick = "buyDS(), displayOver(diamondSword);" onmouseover = "displayOver(diamondSword);" onmouseout = "displayOut(diamondSword);" id = "diamondsword" src = "images/diamondsword.png"> </img> 
+		<span id = "itemdis"> </span>
+		
+	</body>
+</html>

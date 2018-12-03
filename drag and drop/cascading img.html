@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- Connie -->
+<html ondragover = "allowDrag(event)" ondrop = "dropElement(event)">
+	<head>
+		<title></title>
+		<style>
+			img
+			{
+				position: fixed;
+			}
+		</style>
+		<script>
+			function initialize()
+			{
+				coordinates = document.getElementById("coords");
+				originalImg = document.getElementById("copy0");
+				copyNumber = 0;
+			}
+			function startDrag(d)
+			{
+				dragger = d;
+			}
+			function allowDrag(e)
+			{
+				e.preventDefault();
+			}
+			function dropElement(e)
+			{
+				var imgCopy = document.createElement("img");
+				imgCopy.src = originalImg.src; 
+				document.body.appendChild(imgCopy);
+				
+				e.preventDefault();
+				imgCopy.style.left = e.clientX + "px";
+				imgCopy.style.top = e.clientY + "px";
+				coordinates.innerHTML = "(" + e.clientX + ", " + e.clientY + ")";
+			}
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<img id = "copy0" draggable = "draggable" ondragstart = "startDrag(this)" src = "paw.jpg" />
+		<div id = "coords" > </div>
+	</body>
+</html>

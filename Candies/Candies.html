@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- Connie  -->
+<html>
+	<head>
+		<title></title>
+		<style></style>
+		<script>
+		function initialize()
+		{
+			candyAddition = document.getElementById("candy");
+			candyOutput = document.getElementById("candyoutput");
+			errorMsg = document.getElementById("errormsg");
+			errorMssg = document.getElementById("errormssg");
+			candySubtraction =  document.getElementById("rcandy");
+			candies = [];
+			
+			display();
+		}
+		
+		function display()
+		{
+			var i = 0;
+			var output = "";
+			
+			while(i < candies.length)
+			{
+				output += "candy[" + i + "]:  " + candies[i] + "<br />";
+				i++;
+			}
+			candyOutput.innerHTML = output;
+			candyAddition.value = "";
+
+		}
+		
+		function addCandy()
+		{
+			errorMsg.innerHTML = "";
+			var theCandy = candyAddition.value;
+			if(candies.indexOf(theCandy) == -1)
+			{
+				candies.push(theCandy);
+			}
+			else
+			{
+				errorMsg.innerHTML = theCandy + " is already in this list.";
+			}
+			display();
+		}
+		
+		function removeCandy()
+		{
+			errorMssg.innerHTML = "";
+			var theCandy = candySubtraction.value;
+				if (candySubtraction.value != "")
+				{
+					if (candies.indexOf(theCandy) != -1)
+					{
+						candies.splice(candies.indexOf(theCandy), 1);
+					}
+				
+					else 
+					{
+						errorMssg.innerHTML = theCandy + " is not in the list.";
+					}
+					display();
+					candySubtraction.value = "";
+				}
+				
+		}
+		
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<div id = "candyoutput"> </div>
+		<input id = "candy" type = "text" />
+		<button onclick = "addCandy()"> Add a new candy </button>
+		<br />
+		<br />
+		<div id = "errormsg"> </div>
+		<input id = "rcandy" type = "text" />
+		<button onclick = "removeCandy()"> remove candy </button>
+		<br />
+		<div id = "errormssg"> </div>
+		
+	</body>
+</html>

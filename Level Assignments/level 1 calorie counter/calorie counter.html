@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<!-- Connie -->
+<html>
+	<title> Calorie Counter </title>
+	<head> 
+		<style>
+		</style>
+		<script>
+			
+			function initialize()
+			{
+				fat = 0;
+				carbs = 0;
+				protein = 0;
+				
+				cFat = 0;
+				cCarbs = 0;
+				cProtein = 0;
+				
+				App = 0;
+				Ent = 0;
+				cake = 0;
+				
+				values = document.getElementById("currentValues");
+				calTotal = document.getElementById("calValues");
+				calMeal = document.getElementById("calAllMeals");
+				calCom = document.getElementById("calCombined");
+			}
+			
+<!---------------------------------------------------------------adding grams----------------------------------------------------------------->
+			function addFat(num1)
+			{
+				fat = fat + num1;
+				display();
+			}
+			
+			function addCarb(num2)
+			{
+				carbs = (carbs + num2);
+				display();
+			}
+			
+			function addProtein(num3)
+			{
+				protein = (protein + num3);
+				display();
+			}
+			
+<!---------------------------------------------------------calculating Meals-------------------------------------------------------------------->
+			function calcCalories()
+			{
+				cFat = fat * 9;
+				cCarbs = carbs * 4;
+				cProtein = protein * 4;
+			}
+			
+			function calAppetizer()
+			{
+				calcCalories();
+				App = cFat + cCarbs + cProtein;
+				display();
+			}
+			
+			function calEntree()
+			{
+				calcCalories();
+				Ent = cFat + cCarbs + cProtein;
+				display();
+			}
+			
+			function calDessert()
+			{
+				calcCalories();
+				cake = cFat + cCarbs + cProtein;
+				display();
+			}
+			
+			function resetCurrentInput()
+			{
+				fat = 0;
+				carbs = 0;
+				protein = 0;
+				cFat = 0;
+				cCarbs = 0;
+				cProtein = 0;
+				display();
+			}
+			
+			function resetEverything()
+			{
+				fat = 0;
+				carbs = 0;
+				protein = 0;
+				cFat = 0;
+				cCarbs = 0;
+				cProtein = 0;
+				App = 0;
+				Ent = 0;
+				cake = 0;
+				display();
+			}
+			
+			function display()
+			{
+				values.innerHTML = "You added " + fat + " grams of Fat, " + carbs + " grams of Carbohydrates, and " + protein + " grams of Proteins in your current meal";
+				calTotal.innerHTML = "You have " + cFat + " calories from Fat, " + cCarbs + " calories from Carbohydrates, and " + cProtein + " calories from Proteins in your current meal.";
+				calMeal.innerHTML = "calories in your Appetizer: " + App + ", calories in your Entrée: " + Ent + ", calories in your Dessert: " + cake + "  ";
+				calCom.innerHTML = "In total, you have " + (App + Ent + cake) + " calories in all your meals combined";
+			}
+			
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<h3> Calorie Counter </h3>
+		
+		<div id = "currentValues"> You have added 0 grams of Fat, 0 grams of Carbohydrates, and 0 grams of Proteins in your current meal.</div>
+		
+		<div id = "calValues"> You have 0 calories from Fat, 0 calories from Carbohydrates, and 0 calories from Proteins in your current meal.</div>
+		
+		<div id = "calAllMeals"> calories in your Appetizer: 0, calories in your Entrée: 0, calories in your Dessert: 0 </div>
+			
+		<div id = "calCombined"> In total, you have 0 calories in all your meals combined</div>
+		
+		<h2>
+			 <button onclick = "resetCurrentInput();"> Reset Current meal </button>
+		<h2>
+		
+		<hr />
+		
+		<p>
+			<button onclick = "addFat(1);"> Add 1g of Fat </button>
+			<button onclick = "addFat(2);"> Add 2g of Fat </button>
+			<button onclick = "addFat(3);"> Add 3g of Fat </button>
+			<button onclick = "addFat(4);"> Add 4g of Fat </button>
+			<button onclick = "addFat(5);"> Add 5g of Fat </button>
+			<button onclick = "addFat(6);"> Add 6g of Fat </button>
+			<button onclick = "addFat(7);"> Add 7g of Fat </button>
+			<button onclick = "addFat(8);"> Add 8g of Fat </button>
+			<button onclick = "addFat(9);"> Add 9g of Fat </button>
+		</p>
+		
+		<hr />
+		
+		<p>
+			<button onclick = "addCarb(1);"> Add 1g of Carbs </button>
+			<button onclick = "addCarb(2);"> Add 2g of Carbs </button>
+			<button onclick = "addCarb(3);"> Add 3g of Carbs </button>
+			<button onclick = "addCarb(4);"> Add 4g of Carbs </button>
+			<button onclick = "addCarb(5);"> Add 5g of Carbs </button>
+			<button onclick = "addCarb(6);"> Add 6g of Carbs </button>
+			<button onclick = "addCarb(7);"> Add 7g of Carbs </button>
+			<button onclick = "addCarb(8);"> Add 8g of Carbs </button>
+			<button onclick = "addCarb(9);"> Add 9g of Carbs </button>
+		</p>
+		
+		<hr />
+		
+			<button onclick = "addProtein(1);"> Add 1g of Protein </button>
+			<button onclick = "addProtein(2);"> Add 2g of Protein </button>
+			<button onclick = "addProtein(3);"> Add 3g of Protein </button>
+			<button onclick = "addProtein(4);"> Add 4g of Protein </button>
+			<button onclick = "addProtein(5);"> Add 5g of Protein </button>
+			<button onclick = "addProtein(6);"> Add 6g of Protein </button>
+			<button onclick = "addProtein(7);"> Add 7g of Protein </button>
+			<button onclick = "addProtein(8);"> Add 8g of Protein </button>
+			<button onclick = "addProtein(9);"> Add 9g of Protein </button>
+		</p>
+		
+		<hr />
+		
+		<p>
+			<button onclick = "calAppetizer();"> Submit Appetizer </button>
+			<button onclick = "calEntree();"> Submit Entrée </button>
+			<button onclick = "calDessert();"> Submit Dessert </button>
+			<button onclick = "resetEverything();"> Reset all </button>
+		</p>
+		</br>
+	</body>
+</html>

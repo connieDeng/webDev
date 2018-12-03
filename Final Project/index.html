@@ -1,0 +1,64 @@
+<!Doctype html>
+<!-- Samuel Khong-->
+<html>
+	<head>
+		<title>
+
+		</title>
+		<style>
+			#bgrnd
+			{
+				z-index : -1;
+				width : 100%;
+				height : 100%;
+				position : fixed;
+				top : 0;
+				left : 0;
+				background-color : brown;
+			}
+			#heading
+			{
+				text-align : center;
+				padding-top : 150px;
+				font-size : 75pt;
+				color : darkred;
+				font-weight : bold;
+				font-style : italic;
+			}
+			div.clickables
+			{
+				text-align : center;
+			}
+			a
+			{
+				border-style : solid;
+				color : burlywood;
+				background-color : darkred;
+				border-color : black;
+				margin : 50px;
+				padding : 50px;
+				font-weight : bold;
+				font-size : 25pt;
+			}
+			a:hover
+			{
+				cursor : pointer;
+			}
+		</style>
+		<script src = "finalproject.js" > </script>
+		<script>
+			function initialize()
+			{
+				
+			}
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<img id = "bgrnd" src = "images/scroll.png" />
+		<h1 id = "heading"> Final RPG </h1>
+		<div class = "clickables">
+			<a onclick = "newGame();" href = "Menu.html"> New Game </a> 
+			<a href = "Menu.html" > Load </a>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- Connie -->
+<html>
+	
+	<head>
+		<title> Add Substract Multipy Divide </title>
+		<style> </style>
+		<script>
+			function CreateVariables() //functions have ()
+			{
+				//alert("function begin")
+				x = 3;
+				y = 7;
+				//alert("x")
+				//alert(x) //it will show the number 3
+				//alert (y)
+			}
+			
+			function initialize()
+			{
+				CreateVariables(); //one function does one thing
+				add();
+				display();
+				
+				subtract(); //back end
+				display(); // front end
+				
+				Multiply();
+				display();
+				
+				divide();
+				display();
+				
+				Modulus1();
+				display();
+				
+				Modulus2();
+				display();
+			}
+			
+			function add() //back end function, puts answer in another variable; does work behind the scenes
+			{
+				answer= x + y; //the + actually adds
+				//alert(x + " + " + y + " = " + answer); //concatenate (puts together); string literal
+			}
+			
+			function subtract()
+			{
+				answer= x - y; 
+				//alert(x + " - " + y + " = " + answer); 
+			}
+			
+			function Multiply()
+			{
+				answer= x * y; 
+				//alert(x + " * " + y + " = " + answer); 
+			}
+			
+			function divide()
+			{
+				answer= x / y; 
+				//alert(x + " / " + y + " = " + answer); 
+			}
+			//% modulus = used in java remainder. y% 7/3 = 2R1 0/3 = 0R3. 0<=(a%b) <b
+			//a<b; a%b=a
+			
+			function Modulus1() //x-y
+			{
+				answer= x % y; 
+				//alert(x + " % " + y + " = " + answer); 
+			}
+			
+			function Modulus2()
+			{
+				answer= y % x; 
+				//alert(y + " % " + x + " = " + answer); 
+			}
+			
+			function display()
+			{
+				alert(answer);
+			}	
+		</script>
+	</head>
+	
+	<body onload = "initialize();"> <!-- it's in ""-->
+		<button> 
+			add
+		</button>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</body>
+</html> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

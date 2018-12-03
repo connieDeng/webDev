@@ -1,0 +1,91 @@
+<!Doctype html>
+<!-- Samuel Khong-->
+<html>
+	<head>
+		<title>
+
+		</title>
+		<style>
+			#bgrnd
+			{
+				z-index : -1;
+				width : 100%;
+				height : 100%;
+				position : fixed;
+				top : 0;
+				left : 0;
+				background-color : brown;
+			}
+			#heading
+			{
+				text-align : center;
+				padding-top : 50px;
+				font-size : 75pt;
+				color : darkred;
+				font-weight : bold;
+				font-style : italic;
+			}
+			div.clickables
+			{
+				text-align : center;
+			}
+			a
+			{
+				border-style : solid;
+				color : burlywood;
+				background-color : darkred;
+				border-color : black;
+				margin : 50px;
+				padding : 25px;
+				font-weight : bold;
+			}
+			a:hover
+			{
+				cursor : pointer;
+			}
+			h4
+			{
+				text-align :center; 
+			}
+		</style>
+		<script src = "finalproject.js" ></script>
+		<script>
+			function initialize()
+			{
+				loadGame();
+				incHealth = document.getElementById("inchealth");
+				incAtk = document.getElementById("incatk");
+				incDef = document.getElementById("incdef");
+				incSpeed = document.getElementById("incspeed");
+				lPoints = document.getElementById("points");
+				dGold = document.getElementById("money");
+				display();
+			}
+			function display()
+			{
+				lPoints.innerHTML = statPoints;
+				incHealth.innerHTML = health;
+				incAtk.innerHTML = atk;
+				incDef.innerHTML = def;
+				incSpeed.innerHTML = speed;
+				dGold.innerHTML = gold;
+			}
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<img id = "bgrnd" src = "images/scroll.png" />
+		<h1 id = "heading"> Stats </h1>
+		<div class = "clickables">
+			<a onclick = "saveGame();" href = "Menu.html" > Return to Menu </a>
+		</div>
+		<br />
+		<h4>
+		Gold : <span id = "money"> </span> <br />
+		Stat Points <span id = "points"> </span> <br />
+		Health <span id = "inchealth" > </span> <button onclick = "increaseHealth();"> + </button> <br />
+		Attack <span id = "incatk"> </span> <button onclick = "increaseAtk();"> + </button> <br />
+		Defense <span id = "incdef"> </span> <button onclick = "increaseDef();"> + </button> <br />
+		Speed <span id = "incspeed"> </span> <button onclick = "increaseSpeed();"> + </button> <br />
+		</h4>
+	</body>
+</html>

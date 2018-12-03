@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- Sunny Kwong -->
+<html>
+	<head>
+		<title>Card Display</title>
+		<script src = "utilities.js"></script>
+		<script src = "cardengine1.js"></script>
+		<style>
+			#game_status
+			{
+				font: bold 24pt Calibri;
+			}
+			span
+			{
+				display: inline-block;
+				width: 70%;
+				vertical-align: top;
+				border-style:solid;
+			}
+			span + span
+			{
+				width: 25%;
+			}
+			button
+			{
+				font: bold 24pt Calibri;
+			}
+		</style>
+		<script>
+			function initialize()
+			{
+				jBoard = document.getElementById("board");
+				jGameStatus = document.getElementById("game_status");
+				
+				BOARD_SIZE = 9;
+				cardsOnBoard = [];
+				pointValues = [1,2,3,4,5,6,7,8,9,10,0,0,0];
+				selected = []; //only boolean values
+				
+				myDeck = generateDeckWithPointValues(pointValues);
+				myDeck = shuffleDeck(myDeck);
+				
+				for (var i = 0; i < BOARD_SIZE; i++)
+				{
+					var theTD = jBoard.insertCell(i);
+					
+					cardsOnBoard.push(dealCard(myDeck));
+					theTD.innerHTML = "<img src = 'cardImages/" + cardsOnBoard[i].cardImg + "' />";
+					theTD.setAttribute("onclick", "selectUnselect(this)");
+					selected.push(false);
+				}
+			}
+			
+			function selectUnselect(tD)
+			{
+				for(var i = 0; i < jBoard.cells.length; i++)
+				{
+					if(jBoard.cells[i] == tD)
+					{
+						selected[i] = !selected[i];
+						if(selected[i])
+						{
+							tD.style.border = "thick solid green";
+						}
+						else
+						{
+							tD.style.border = "none";
+						}
+						return;
+					}
+				}
+			}
+			function replaceCard(index)
+			{
+				var theTD = jBoard.cells[index];
+				
+				if(myDeck.length > 0)
+				{
+					cardsOnBoard[index] = dealCard(myDeck);
+					theTD.innerHTML = "<img src = 'cardImages/" + cardsOnBoard[index].cardImg + "' />";
+				}
+				else
+				{
+					cardsOnBoard[index] = null;
+					theTD.innerHTML = "<img src = 'cardImages/back-red-75-1.png' />";
+				}
+				selectUnselect(theTD);
+			}
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<div>
+			<span>
+				<table>
+					<tr id = "board">
+					
+					</tr>
+				</table>
+			</span>
+			<span>
+				<button onclick = ";"> Replace </button>
+				<br /><br />
+				<button onclick = "restart();"> Restart </button>
+			</span>
+		</div>
+		<div id = "game_status"> </div>
+	</body>
+</html>
